@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
@@ -34,6 +36,30 @@ export default function HomePage() {
     "Bonjour Serenys Renovation, je souhaite discuter de mon projet de rénovation."
   );
 
+const prestations = [
+  ...services.map((service) => ({
+    title: service.h1.replace("en Île-de-France", "").trim(),
+    href: `/services/${service.slug}`,
+    description: service.intro,
+  })),
+  {
+    title: "Peinture intérieure",
+    href: "/contact",
+    description: "Préparation des supports et finitions soignées pour chaque pièce.",
+  },
+  {
+    title: "Plomberie",
+    href: "/contact",
+    description: "Mise aux normes et création de réseaux pour vos travaux intérieurs.",
+  },
+  {
+    title: "Électricité",
+    href: "/contact",
+    description: "Sécurisation et modernisation des installations électriques.",
+  },
+];
+
+export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -73,6 +99,16 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/50" />
 
+      <section className="relative overflow-hidden bg-slate-900 text-white">
+        <Image
+          src="/images/hero/renovation-hero.svg"
+          alt="Artisans en chantier de rénovation"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        {/* Ajouter le fichier /public/images/hero/renovation-hero.svg pour remplacer le placeholder visuel. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/70" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="max-w-3xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">

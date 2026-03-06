@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
 
@@ -20,10 +20,46 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return {
-    title: service.metaTitle,
+    title: `${service.h1} | Serenys Rénovation`,
     description: service.metaDescription,
   };
 }
+
+function getFaq(h1: string) {
+  return [
+    {
+      question: `Combien coûte ${h1.toLowerCase()} ?`,
+      answer:
+        "Le budget dépend de la surface, de l’état initial et du niveau de finition. Nous proposons une première fourchette puis un devis détaillé après visite.",
+    },
+    {
+      question: "Combien de temps durent les travaux ?",
+      answer:
+        "La durée dépend de l’ampleur du projet et des lots techniques. Un planning prévisionnel vous est communiqué avant le démarrage.",
+    },
+    {
+      question: "Faut-il quitter son logement pendant les travaux ?",
+      answer:
+        "Cela dépend du niveau d’intervention. Pour une rénovation lourde, un logement temporaire peut être plus confortable.",
+    },
+    {
+      question: "Intervenez-vous en copropriété ?",
+      answer:
+        "Oui, nous intervenons régulièrement en copropriété en respectant les contraintes d’accès et d’horaires.",
+    },
+    {
+      question: "Les travaux sont-ils garantis ?",
+      answer:
+        "Oui, les travaux couverts par la réglementation bénéficient d’une garantie décennale. Les détails sont précisés au devis.",
+    },
+  ];
+}
+
+const budgetRanges = [
+  { label: "Rafraîchissement", value: "à partir de 400 €/m²" },
+  { label: "Rénovation complète", value: "environ 800 à 1 300 €/m²" },
+  { label: "Rénovation lourde", value: "à partir de 1 300 €/m²" },
+];
 
 export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
@@ -32,6 +68,21 @@ export default async function ServicePage({ params }: Props) {
   if (!service) {
     notFound();
   }
+
+  const linkedCities = cities.slice(0, 6);
+  const linkedGuides = guides.slice(0, 3);
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.h1,
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Serenys Renovation",
+    },
+    areaServed: ["Île-de-France", "Hauts-de-Seine", "Yvelines"],
+    description: service.intro,
+  };
 
   return (
     <main className="min-h-screen bg-white px-6 py-16">
