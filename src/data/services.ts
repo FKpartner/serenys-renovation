@@ -19,20 +19,18 @@ export const services = [
   },
   {
     slug: "renovation-cuisine",
-    metaTitle: "Rénovation de cuisine en Île-de-France | Serenys Rénovation",
-    metaDescription:
-      "Rénovation de cuisine en Île-de-France : aménagement, plomberie, électricité et finitions adaptées à vos usages.",
+    metaTitle: "Rénovation de cuisine en Île-de-France",
+    metaDescription: "Entreprise de rénovation de cuisine en Île-de-France",
     h1: "Rénovation de cuisine en Île-de-France",
     intro:
-      "Nous concevons des cuisines fonctionnelles et durables, avec une coordination complète des lots techniques.",
+      "Nous concevons des cuisines fonctionnelles, esthétiques et adaptées à vos usages.",
   },
   {
     slug: "renovation-salle-de-bain",
-    metaTitle: "Rénovation de salle de bain en Île-de-France | Serenys Rénovation",
-    metaDescription:
-      "Rénovation de salle de bain en Île-de-France : solutions techniques fiables, étanchéité, confort et finitions premium.",
+    metaTitle: "Rénovation de salle de bain en Île-de-France",
+    metaDescription: "Entreprise de rénovation de salle de bain en Île-de-France",
     h1: "Rénovation de salle de bain en Île-de-France",
     intro:
-      "Nous rénovons votre salle de bain avec des solutions adaptées aux contraintes techniques et à votre confort quotidien.",
+      "Nous rénovons votre salle de bain avec des solutions durables et confortables.",
   },
 ];

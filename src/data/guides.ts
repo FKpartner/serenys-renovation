@@ -1,20 +1,20 @@
 export const guides = [
   {
     slug: "renovation-appartement-budget",
-    title: "Rénovation d'appartement : comment cadrer un budget réaliste",
+    title: "Rénovation d’appartement : comment bien cadrer son budget",
     description:
-      "Repères concrets pour estimer les postes de coûts, hiérarchiser les priorités et éviter les oublis en rénovation d'appartement.",
+      "Nos conseils pour anticiper les postes de coûts et sécuriser votre projet de rénovation d’appartement.",
   },
   {
     slug: "renovation-cuisine-conseils",
-    title: "Rénovation de cuisine : les décisions à prendre avant les travaux",
+    title: "Rénovation de cuisine : les points clés avant de démarrer",
     description:
-      "Implantation, plomberie, électricité, choix des matériaux : les points à valider pour un projet cuisine bien préparé.",
+      "Implantation, matériaux, budget et planning : la checklist essentielle pour réussir votre cuisine.",
   },
   {
     slug: "renovation-salle-de-bain-etapes",
-    title: "Rénovation de salle de bain : étapes, budget et points techniques",
+    title: "Rénovation de salle de bain : les étapes à ne pas négliger",
     description:
-      "Un guide pratique pour anticiper l'étanchéité, la ventilation, les équipements et le planning d'une salle de bain.",
+      "Étanchéité, ventilation, choix des équipements et finitions : le guide pratique Serenys.",
   },
 ];
