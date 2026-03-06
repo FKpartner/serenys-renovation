@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
+import { guides } from "@/data/guides";
 import { services } from "@/data/services";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.serenys-renovation.fr";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.serenys-renovation.fr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -13,12 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const interventionRoutes = services.flatMap((service) =>
     cities.map((city) => `/intervention/${service.slug}/${city.slug}`)
   );
+  const guideRoutes = guides.map((guide) => `/guides/${guide.slug}`);
 
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...cityRoutes,
     ...interventionRoutes,
+    ...guideRoutes,
   ].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: now,

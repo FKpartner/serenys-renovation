@@ -1,33 +1,32 @@
 import Link from "next/link";
-
-const guideSlugs = [
-  "renovation-appartement-budget",
-  "renovation-cuisine-conseils",
-  "renovation-salle-de-bain-etapes",
-];
+import { guides } from "@/data/guides";
 
 export default function GuidesPage() {
   return (
     <main className="min-h-screen bg-white px-6 py-16">
-      <div className="mx-auto max-w-4xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-green-700">
+      <div className="mx-auto max-w-5xl">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
           Guides
         </p>
-        <h1 className="mb-6 text-4xl font-bold text-gray-900">
-          Conseils rénovation Serenys
+
+        <h1 className="mb-6 text-4xl font-extrabold text-slate-900 md:text-5xl">
+          Guides rénovation Serenys
         </h1>
-        <p className="mb-10 text-lg text-gray-700">
-          Parcourez nos guides pour préparer votre projet de rénovation.
+
+        <p className="mb-10 max-w-3xl text-lg text-slate-700">
+          Découvrez nos conseils pratiques pour mieux préparer votre projet de
+          rénovation en Île-de-France.
         </p>
 
-        <div className="space-y-4">
-          {guideSlugs.map((slug) => (
+        <div className="grid gap-5 md:grid-cols-2">
+          {guides.map((guide) => (
             <Link
-              key={slug}
-              href={`/guides/${slug}`}
-              className="block rounded-xl border border-gray-200 p-5 transition hover:border-green-700"
+              key={guide.slug}
+              href={`/guides/${guide.slug}`}
+              className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-emerald-700 hover:shadow-md"
             >
-              {slug.replace(/-/g, " ")}
+              <h2 className="mb-2 text-xl font-bold text-slate-900">{guide.title}</h2>
+              <p className="text-slate-600">{guide.description}</p>
             </Link>
           ))}
         </div>
