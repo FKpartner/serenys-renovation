@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FaqSection } from "@/components/sections/faq-section";
-import { MethodStepsSection } from "@/components/sections/method-steps";
 import { cities } from "@/data/cities";
-import { guides } from "@/data/guides";
 import { services } from "@/data/services";
 
 type Props = {
@@ -90,124 +85,52 @@ export default async function ServicePage({ params }: Props) {
   };
 
   return (
-    <main className="min-h-screen bg-white px-6 py-14">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <div className="mx-auto max-w-6xl space-y-12">
-        <section>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Service</p>
-          <h1 className="mb-4 text-4xl font-extrabold text-slate-900 md:text-5xl">{service.h1}</h1>
-          <p className="max-w-4xl text-lg text-slate-700">{service.intro}</p>
-        </section>
+    <main className="min-h-screen bg-white px-6 py-16">
+      <div className="mx-auto max-w-6xl">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+          Services Serenys
+        </p>
 
-        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-          <h2 className="mb-4 text-3xl font-bold text-slate-900">Quels travaux réalisons-nous ?</h2>
-          <ul className="grid gap-3 text-slate-700 md:grid-cols-2">
-            <li>• Dépose, préparation et remise à niveau des supports.</li>
-            <li>• Travaux de peinture, plomberie et électricité selon besoin.</li>
-            <li>• Aménagement des pièces d’eau et des espaces de vie.</li>
-            <li>• Finitions soignées et contrôle qualité en fin de chantier.</li>
+        <h1 className="mb-5 text-4xl font-extrabold text-slate-900 md:text-5xl">
+          {service.h1}
+        </h1>
+
+        <p className="mb-10 max-w-3xl text-lg leading-relaxed text-slate-700">
+          {service.intro}
+        </p>
+
+        <section className="mb-10 rounded-2xl bg-slate-50 p-8 ring-1 ring-slate-200">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">
+            Notre méthode pour un chantier maîtrisé
+          </h2>
+          <ul className="space-y-3 text-slate-700">
+            <li>• Étude complète du besoin, du style et du budget.</li>
+            <li>• Planning clair et coordination des corps de métier.</li>
+            <li>• Contrôle qualité jusqu’aux finitions.</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="mb-4 text-3xl font-bold text-slate-900">Quel budget prévoir ?</h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            {budgetRanges.map((item) => (
-              <article key={item.label} className="rounded-2xl border border-slate-200 p-6">
-                <h3 className="text-xl font-semibold">{item.label}</h3>
-                <p className="mt-2 text-emerald-700">{item.value}</p>
-              </article>
-            ))}
-          </div>
-          <p className="mt-4 text-sm text-slate-600">
-            Prix indicatifs à adapter selon la surface, l’état initial du bien, les contraintes techniques et le niveau de finition souhaité.
+          <h2 className="mb-3 text-2xl font-bold text-slate-900 md:text-3xl">
+            Interventions locales pour ce service
+          </h2>
+          <p className="mb-6 text-slate-600">
+            Accédez à nos pages SEO locales pour {service.h1.toLowerCase()}.
           </p>
-        </section>
 
-        <MethodStepsSection />
-
-        <section>
-          <h2 className="mb-4 text-3xl font-bold text-slate-900">Pourquoi faire appel à Serenys Rénovation ?</h2>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-            {[
-              "Devis gratuit",
-              "Interlocuteur unique",
-              "Coordination des travaux",
-              "Intervention en Île-de-France",
-              "Travaux garantis 10 ans",
-            ].map((point) => (
-              <article key={point} className="rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-800">
-                {point}
-              </article>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {cities.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/intervention/${service.slug}/${city.slug}`}
+                className="rounded-xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-md"
+              >
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {service.h1} à {city.name}
+                </h3>
+                <p className="mt-1 text-sm text-slate-500">{city.department}</p>
+              </Link>
             ))}
-          </div>
-        </section>
-
-        <section>
-          <h2 className="mb-4 text-3xl font-bold text-slate-900">Réalisations liées</h2>
-          <div className="grid gap-5 md:grid-cols-3">
-            {[1, 2, 3].map((index) => (
-              <article key={index} className="overflow-hidden rounded-2xl border border-slate-200">
-                <div className="relative h-44 bg-slate-200">
-                  <Image
-                    src="/images/placeholders/service-project.svg"
-                    alt={`Réalisation ${index} ${service.h1}`}
-                    fill
-                    className="object-cover"
-                  />
-                  {/* Ajouter les images dans /public/images/services/ pour remplacer les placeholders. */}
-                </div>
-                <div className="p-5">
-                  <h3 className="font-semibold">Projet {index} - {service.h1}</h3>
-                  <p className="text-sm text-slate-500">Hauts-de-Seine / Yvelines</p>
-                  <p className="mt-2 text-slate-700">Réalisation à documenter : photos avant/après, contraintes techniques et résultat final.</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <FaqSection faqs={getFaq(service.h1)} />
-
-        <section className="rounded-2xl bg-slate-900 p-8 text-white">
-          <h2 className="text-3xl font-bold">Parlons de votre projet</h2>
-          <p className="mt-3 max-w-2xl text-slate-200">Obtenez un cadrage clair du budget, des délais et des travaux à prévoir pour votre rénovation.</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-lg bg-emerald-600 px-5 py-3 font-semibold text-white">Demander un devis gratuit</Link>
-            <Link href="/calculateur-travaux" className="rounded-lg border border-white/30 px-5 py-3 font-semibold text-white">Calculer mon budget</Link>
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-slate-200 p-8">
-          <h2 className="mb-4 text-2xl font-bold text-slate-900">Liens utiles pour préparer votre projet</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div>
-              <h3 className="mb-2 font-semibold">Villes liées</h3>
-              <ul className="space-y-1 text-sm text-slate-700">
-                {linkedCities.map((city) => (
-                  <li key={city.slug}>
-                    <Link href={`/intervention/${service.slug}/${city.slug}`} className="hover:text-emerald-700">{service.h1} à {city.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-2 font-semibold">Guides liés</h3>
-              <ul className="space-y-1 text-sm text-slate-700">
-                {linkedGuides.map((guide) => (
-                  <li key={guide.slug}>
-                    <Link href={`/guides/${guide.slug}`} className="hover:text-emerald-700">{guide.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-2 font-semibold">Actions rapides</h3>
-              <ul className="space-y-1 text-sm text-slate-700">
-                <li><Link href="/calculateur-travaux" className="hover:text-emerald-700">Calculateur travaux</Link></li>
-                <li><Link href="/contact" className="hover:text-emerald-700">Page contact</Link></li>
-              </ul>
-            </div>
           </div>
         </section>
       </div>
