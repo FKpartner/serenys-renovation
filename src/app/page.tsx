@@ -22,13 +22,13 @@ export default function HomePage() {
             href="/contact"
             className="rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-800"
           >
-            Obtenir un devis gratuit
+            Obtenir un devis
           </Link>
           <Link
             href="/calculateur-travaux"
             className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
           >
-            Calculer mon budget travaux
+            Demander un devis gratuit
           </Link>
         </div>
       </section>
