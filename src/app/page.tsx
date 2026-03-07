@@ -136,6 +136,124 @@ export default function HomePage() {
           >
             Obtenir un devis gratuit
           </Link>
+          <Link href="/renovation/versailles" className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+            Versailles
+          </Link>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">FAQ</h2>
+          <div className="mt-6 space-y-3">
+            <details className="rounded-xl border border-slate-200 bg-[#fcfcfb] p-5" open>
+              <summary className="cursor-pointer font-semibold text-slate-900">
+                Combien coûte une rénovation d’appartement ?
+              </summary>
+              <p className="mt-2 text-sm text-slate-600">
+                Le budget dépend de la surface, de l’état du bien et du niveau de finition. Une visite permet d’établir un devis précis.
+              </p>
+            </details>
+            <details className="rounded-xl border border-slate-200 bg-[#fcfcfb] p-5">
+              <summary className="cursor-pointer font-semibold text-slate-900">Combien de temps durent les travaux ?</summary>
+              <p className="mt-2 text-sm text-slate-600">
+                La durée varie selon l’ampleur du projet. Un planning prévisionnel est défini avant le démarrage du chantier.
+              </p>
+            </details>
+            <details className="rounded-xl border border-slate-200 bg-[#fcfcfb] p-5">
+              <summary className="cursor-pointer font-semibold text-slate-900">Les travaux sont-ils garantis ?</summary>
+              <p className="mt-2 text-sm text-slate-600">
+                Oui, les postes concernés sont couverts par la garantie décennale dans le respect de la réglementation.
+              </p>
+            </details>
+            <details className="rounded-xl border border-slate-200 bg-[#fcfcfb] p-5">
+              <summary className="cursor-pointer font-semibold text-slate-900">Intervenez-vous en copropriété ?</summary>
+              <p className="mt-2 text-sm text-slate-600">
+                Oui, nous intervenons en copropriété en respectant les contraintes d’accès, d’horaires et de coordination.
+              </p>
+            </details>
+            <details className="rounded-xl border border-slate-200 bg-[#fcfcfb] p-5">
+              <summary className="cursor-pointer font-semibold text-slate-900">Proposez-vous un devis gratuit ?</summary>
+              <p className="mt-2 text-sm text-slate-600">
+                Oui, le premier échange et l’évaluation initiale sont gratuits et sans engagement.
+              </p>
+            </details>
+            <details className="rounded-xl border border-slate-200 bg-[#fcfcfb] p-5">
+              <summary className="cursor-pointer font-semibold text-slate-900">Intervenez-vous en Île-de-France ?</summary>
+              <p className="mt-2 text-sm text-slate-600">
+                Oui, nous intervenons sur les principaux secteurs d’Île-de-France selon la nature du chantier.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-slate-200 bg-[#f4f2eb]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.1em] text-slate-700">Services principaux</h3>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li><Link href="/services/renovation-appartement" className="hover:underline">Rénovation appartement</Link></li>
+              <li><Link href="/services/renovation-maison" className="hover:underline">Rénovation maison</Link></li>
+              <li><Link href="/services/renovation-salle-de-bain" className="hover:underline">Rénovation salle de bain</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.1em] text-slate-700">Villes principales</h3>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li><Link href="/renovation/saint-cloud" className="hover:underline">Saint-Cloud</Link></li>
+              <li><Link href="/renovation/boulogne-billancourt" className="hover:underline">Boulogne-Billancourt</Link></li>
+              <li><Link href="/renovation/versailles" className="hover:underline">Versailles</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.1em] text-slate-700">Combinaisons populaires</h3>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <Link href="/intervention/renovation-appartement/saint-cloud" className="hover:underline">
+                  Rénovation appartement Saint-Cloud
+                </Link>
+              </li>
+              <li>
+                <Link href="/intervention/renovation-salle-de-bain/boulogne-billancourt" className="hover:underline">
+                  Rénovation salle de bain Boulogne-Billancourt
+                </Link>
+              </li>
+              <li>
+                <Link href="/intervention/renovation-maison/versailles" className="hover:underline">
+                  Rénovation maison Versailles
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+      <section className="px-4 pb-16 pt-10 sm:px-6">
+        <div className="mx-auto max-w-6xl rounded-3xl bg-[#23465a] px-6 py-10 text-white sm:px-8">
+          <h2 className="text-3xl font-bold">Un projet de rénovation ? Parlons-en sereinement</h2>
+          <p className="mt-3 max-w-2xl text-slate-200">
+            Bénéficiez d’un accompagnement complet avec un interlocuteur unique, du devis à la livraison.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+            >
+              Demander un devis gratuit
+            </Link>
+            {/* TODO: Remplacer le numéro WhatsApp placeholder par le vrai numéro business */}
+            <a
+              href="https://wa.me/33000000000"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+            >
+              Échanger sur mon projet
+            </a>
+          </div>
         </div>
       </section>
     </main>
