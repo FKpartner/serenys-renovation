@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 
