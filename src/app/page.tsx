@@ -208,7 +208,7 @@ export default function HomePage() {
         </header>
 
         <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-10 pt-7 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pt-12">
-          <div className="order-2 lg:order-1">
+          <div>
             <span className="inline-flex rounded-full border border-[#c9d6ca] bg-[#eaf2ea] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#2f7d4f]">
               Entreprise de rénovation en Île-de-France
             </span>
@@ -233,11 +233,12 @@ export default function HomePage() {
             </div>
             <p className="mt-2 text-sm text-slate-600">Réponse rapide • Devis gratuit • Artisans qualifiés</p>
           </div>
+        </section>
 
-          <div className="order-1 relative overflow-hidden rounded-[2rem] border border-[#d8ddd8] bg-gradient-to-br from-[#f9f7f2] to-[#ebe8de] p-4 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.45)] sm:p-5 lg:order-2">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#d8ddd8] bg-gradient-to-br from-[#f9f7f2] to-[#ebe8de] p-4 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.45)] sm:p-5">
             <Image
-              src="/images/hero/Kevin-hero.png"
-              alt="Kevin fondateur Serenys Rénovation artisan rénovation Île-de-France"
+              src="/images/kevin-founder.svg"
+              alt="Kevin, fondateur de Serenys Rénovation"
               width={700}
               height={840}
               className="h-auto w-full rounded-3xl object-cover"
