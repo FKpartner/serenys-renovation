@@ -233,11 +233,9 @@ export default function HomePage() {
             </div>
             <p className="mt-2 text-sm text-slate-600">Réponse rapide • Devis gratuit • Artisans qualifiés</p>
           </div>
-        </section>
-
           <div className="relative overflow-hidden rounded-[2rem] border border-[#d8ddd8] bg-gradient-to-br from-[#f9f7f2] to-[#ebe8de] p-4 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.45)] sm:p-5">
             <Image
-              src="/images/kevin-founder.svg"
+              src="/images/hero/Kevin-hero.png"
               alt="Kevin, fondateur de Serenys Rénovation"
               width={700}
               height={840}
