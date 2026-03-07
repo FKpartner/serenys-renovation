@@ -219,12 +219,13 @@ export default function HomePage() {
               20 ans d’expérience BTP, plus de 2000 chantiers réalisés. Salle de bain, plomberie,
               électricité, rénovation intérieure.
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3">
               <Link href="#contact" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#2f7d4f] px-6 py-3 text-base font-semibold text-white transition hover:bg-[#266741]">
-                Obtenir un devis gratuit
+                Devis gratuit
               </Link>
-              <a href="tel:+33184807967" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-50">
-                Appeler maintenant
+              <a href="tel:+33618121928" className="inline-flex items-center justify-center gap-1 text-sm text-slate-600">
+                <span aria-hidden="true">📞</span>
+                <span>06 18 12 19 28</span>
               </a>
             </div>
             <div className="mt-5 flex items-center gap-2 text-sm text-slate-700">
@@ -474,19 +475,6 @@ export default function HomePage() {
           </div>
         </footer>
 
-        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
-          <div className="mx-auto flex max-w-md gap-2">
-            <a href="tel:+33184807967" className="inline-flex flex-1 items-center justify-center rounded-xl border border-slate-300 px-3 py-3 text-sm font-semibold text-slate-900">
-              Appeler
-            </a>
-            <Link href="#contact" className="inline-flex flex-1 items-center justify-center rounded-xl bg-[#2f7d4f] px-3 py-3 text-sm font-semibold text-white">
-              Devis gratuit
-            </Link>
-            <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex flex-1 items-center justify-center rounded-xl border border-[#bdd0be] bg-[#edf4ec] px-3 py-3 text-sm font-semibold text-[#2f7d4f]">
-              WhatsApp
-            </a>
-          </div>
-        </div>
       </main>
     </>
   );
