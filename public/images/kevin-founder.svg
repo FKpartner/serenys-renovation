@@ -1,0 +1,18 @@
+<svg width="960" height="1120" viewBox="0 0 960 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1120" rx="56" fill="#F3F1EC"/>
+  <rect x="44" y="44" width="872" height="1032" rx="44" fill="url(#bg)"/>
+  <circle cx="480" cy="340" r="150" fill="#E2DCD1"/>
+  <circle cx="480" cy="290" r="92" fill="#C6B09B"/>
+  <path d="M344 670C344 570.589 424.589 490 524 490H436C535.411 490 616 570.589 616 670V764H344V670Z" fill="#F9F6F1"/>
+  <rect x="338" y="758" width="284" height="214" rx="36" fill="#F7F4EE"/>
+  <text x="480" y="856" text-anchor="middle" fill="#23333A" font-family="Arial, sans-serif" font-size="46" font-weight="700">Kevin</text>
+  <text x="480" y="902" text-anchor="middle" fill="#49616A" font-family="Arial, sans-serif" font-size="26">Fondateur Serenys</text>
+  <rect x="116" y="116" width="238" height="62" rx="31" fill="#2F7D4F" fill-opacity="0.12"/>
+  <text x="235" y="154" text-anchor="middle" fill="#2F7D4F" font-family="Arial, sans-serif" font-size="24" font-weight="700">Photo dirigeant</text>
+  <defs>
+    <linearGradient id="bg" x1="480" y1="44" x2="480" y2="1076" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F6F3"/>
+      <stop offset="1" stop-color="#EBE8E1"/>
+    </linearGradient>
+  </defs>
+</svg>
