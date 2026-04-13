@@ -15,9 +15,15 @@ export function LocalBusinessJsonLd({ pageUrl }: LocalBusinessJsonLdProps) {
       "Rénovation de cuisine",
       "Rénovation de salle de bain",
     ],
-    telephone: "[Téléphone à compléter]",
-    email: "[Email à compléter]",
-    identifier: "[SIRET à compléter]",
+    telephone: "01 84 80 79 67",
+    email: "contact@serenys-renovation.fr",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "9 avenue des Acacias",
+      postalCode: "78700",
+      addressLocality: "Conflans-Sainte-Honorine",
+      addressCountry: "FR",
+    },
   };
 
   return (
