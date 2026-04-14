@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { WorkCalculator } from "@/components/home/work-calculator";
 import { LocalBusinessJsonLd } from "@/components/seo/local-business-jsonld";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 const navItems = [
   { label: "Services", href: "#services" },
-  { label: "Zones", href: "#villes" },
+  { label: "Zones", href: "/renovation" },
   { label: "Réalisations", href: "#realisations" },
-  { label: "Méthode", href: "#methode" },
-  { label: "Guides", href: "#guides" },
+  { label: "Équipe", href: "/equipe" },
+  { label: "Guides", href: "/guides" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -18,19 +17,19 @@ const services = [
   {
     title: "Rénovation d'appartement",
     description:
-      "Redistribution des pièces, reprise des réseaux, finitions et pilotage du chantier pour les appartements en Île-de-France.",
+      "Redistribution des pièces, reprise des réseaux, menuiserie, plâtrerie, revêtements et finitions pour les appartements en Île-de-France.",
     href: "/services/renovation-appartement",
   },
   {
     title: "Rénovation de maison",
     description:
-      "Rénovation intérieure, amélioration du confort, modernisation des espaces et coordination tous corps d'état.",
+      "Rénovation intérieure, gros et second oeuvre, optimisation des volumes et coordination tous corps d'état.",
     href: "/services/renovation-maison",
   },
   {
     title: "Rénovation de cuisine",
     description:
-      "Implantation, plomberie, électricité, revêtements et finitions pour une cuisine fonctionnelle et durable.",
+      "Implantation, plomberie, électricité, verrière, revêtements et finitions pour une cuisine fonctionnelle et durable.",
     href: "/services/renovation-cuisine",
   },
   {
@@ -38,6 +37,30 @@ const services = [
     description:
       "Douche, baignoire, étanchéité, ventilation, carrelage et équipements avec un suivi soigné de l'exécution.",
     href: "/services/renovation-salle-de-bain",
+  },
+  {
+    title: "Réparation après dégâts des eaux",
+    description:
+      "Recherche de remise en état, reprises des supports, séchage, réparation et finitions après sinistre ou infiltration.",
+    href: "/services/renovation-appartement",
+  },
+  {
+    title: "Plomberie et électricité",
+    description:
+      "Reprise des réseaux, mise en conformité, appareillages, alimentation et interventions techniques intégrées au chantier.",
+    href: "/services/renovation-salle-de-bain",
+  },
+  {
+    title: "Plâtrerie, carrelage et parquet",
+    description:
+      "Cloisons, faux plafonds, ragréage, carrelage, parquet et revêtements pour repartir sur une base saine et durable.",
+    href: "/services/renovation-appartement",
+  },
+  {
+    title: "Peinture, menuiserie et agencement sur mesure",
+    description:
+      "Peinture intérieure, finitions, verrières, rangements, menuiseries et solutions sur mesure pour optimiser l'espace.",
+    href: "/services/renovation-cuisine",
   },
 ];
 
@@ -74,93 +97,55 @@ const cityLinks = [
   { label: "Meudon", href: "/renovation/meudon" },
 ];
 
-const guides = [
+const reviews = [
   {
-    title: "Rénovation d'appartement : comment bien cadrer son budget",
-    excerpt:
-      "Les postes de coûts à anticiper et les questions à se poser avant de lancer son chantier.",
-    href: "/guides/renovation-appartement-budget",
+    author: "Édouard",
+    location: "Yvelines",
+    quote:
+      "Serenys a mobilisé ses différents experts et artisans pour me faire une offre globale, particulièrement compétitive, dans un délai rapide avec un résultat de grande qualité.",
+    detail: "Projet multi-lots avec maçonnerie, menuiserie, peinture et électricité.",
   },
   {
-    title: "Rénovation de cuisine : les points clés avant de démarrer",
-    excerpt:
-      "Budget, implantation, matériaux et coordination des artisans pour éviter les mauvaises surprises.",
-    href: "/guides/renovation-cuisine-conseils",
+    author: "Client salle de bain",
+    location: "Bures-sur-Yvette",
+    quote:
+      "Le chantier a été repensé de manière très concrète pour gagner en confort, en fonctionnalité et en qualité d'usage au quotidien.",
+    detail: "Reprise complète de salle de bain avec aération, douche et réorganisation de l'espace.",
   },
   {
-    title: "Rénovation de salle de bain : les étapes à ne pas négliger",
-    excerpt:
-      "Étanchéité, ventilation, plomberie et équipements : les incontournables d'une salle de bain réussie.",
-    href: "/guides/renovation-salle-de-bain-etapes",
+    author: "Client appartement",
+    location: "Saint-Germain-en-Laye",
+    quote:
+      "L'enchaînement des étapes, la préparation des supports et la clarté du suivi ont permis d'avancer sereinement sur un chantier pourtant technique.",
+    detail: "Reprise d'un appartement sinistré avec ponçage, ragréage et remise en état.",
   },
-];
-
-const seoHighlights = [
-  "Entreprise de rénovation en Île-de-France",
-  "Travaux d'appartement, maison, cuisine et salle de bain",
-  "Devis gratuit, budget cadré et suivi de chantier clair",
-];
-
-const proofStats = [
-  {
-    label: "Expérience métier",
-    value: "20+ ans",
-    detail: "Mentionnée sur le site historique Serenys Rénovation.",
-  },
-  {
-    label: "Chantiers réalisés",
-    value: "+2000",
-    detail: "Argument déjà mis en avant par Serenys sur sa communication publique.",
-  },
-  {
-    label: "Pilotage grands volumes",
-    value: "250 collaborateurs",
-    detail: "Équipe supervisée par Kevin Ohanian dans son parcours précédent.",
-  },
-  {
-    label: "Ancrage local",
-    value: "Conflans-Sainte-Honorine",
-    detail: "Adresse publique affichée sur le site live.",
-  },
-];
-
-const localProofs = [
-  "Adresse publique : 9 avenue des Acacias, 78700 Conflans-Sainte-Honorine.",
-  "Intervention annoncée dans toute l'Île-de-France, avec focus opérationnel sur les Hauts-de-Seine et les Yvelines.",
-  "Parcours fondateur : CAP Sanitaire major Hauts-de-Seine, Brevet Professionnel, conduite de travaux et gestion de sinistres.",
-  "Chantiers documentés sur Instagram à Bures-sur-Yvette, Saint-Germain-en-Laye et Antony.",
-];
-
-const featuredReview = {
-  author: "Édouard",
-  quote:
-    "Serenys a mobilisé ses différents experts et artisans pour me faire une offre globale, particulièrement compétitive, dans un délai rapide avec un résultat de grande qualité.",
-  detail:
-    "Témoignage publié sur le site historique Serenys Rénovation à propos d'un chantier mêlant maçonnerie, menuiserie, peinture et électricité.",
-};
-
-const instagramProofs = [
-  "Bures-sur-Yvette : réorganisation complète d'une salle de bain, reprise de l'aération et remplacement de la baignoire par une douche.",
-  "Saint-Germain-en-Laye : reprise d'un appartement sinistré avec ponçage, ragréage et préparation des sols avant carrelage.",
-  "Antony : dépose de cuisine, création d'une verrière sur mesure et reprise des peintures pour un rendu cohérent.",
-  "Avant / après salle de bain : transformation d'une baignoire d'angle en douche à l'italienne avec matériaux plus durables.",
 ];
 
 const methodSteps = [
   {
-    title: "Cadrer le projet",
+    title: "1. Demande de devis",
     description:
-      "Nous échangeons sur vos besoins, les contraintes du bien, le niveau de finition recherché et le budget.",
+      "Nous recueillons vos besoins, les contraintes du bien, le niveau de finition attendu et les grandes lignes du budget.",
   },
   {
-    title: "Définir les priorités",
+    title: "2. Visite technique",
     description:
-      "Nous construisons un plan d'action cohérent avec les travaux à engager, les délais visés et la réalité technique.",
+      "Un rendez-vous sur place permet d'évaluer l'existant, les points techniques et les arbitrages à prévoir avant lancement.",
   },
   {
-    title: "Piloter le chantier",
+    title: "3. Chiffrage et planification",
     description:
-      "Nous coordonnons les interventions et gardons un suivi lisible jusqu'aux finitions et à la livraison.",
+      "Nous préparons un devis clair, les postes de travaux, le niveau de finition retenu et le planning de réalisation.",
+  },
+  {
+    title: "4. Coordination du chantier",
+    description:
+      "Nous pilotons les corps d'état, le suivi d'avancement et les ajustements nécessaires jusqu'aux finitions.",
+  },
+  {
+    title: "5. Livraison",
+    description:
+      "Nous faisons la réception du chantier avec vous pour valider le rendu final, les détails de finition et la bonne remise des espaces.",
   },
 ];
 
@@ -173,12 +158,22 @@ const faqs = [
   {
     question: "Quels travaux de rénovation réalisez-vous ?",
     answer:
-      "Nous accompagnons les rénovations d'appartement, de maison, de cuisine et de salle de bain, avec coordination des corps d'état, reprise des réseaux et finitions.",
+      "Nous intervenons sur l'essentiel des travaux de rénovation intérieure : plomberie, électricité, plâtrerie, peinture, menuiserie, revêtements, cuisine, salle de bain, maison et appartement.",
   },
   {
     question: "Pouvez-vous établir un devis pour des travaux de rénovation ?",
     answer:
       "Oui, la page d'accueil oriente vers un devis gratuit et un premier cadrage du budget pour vous aider à valider le projet avant le démarrage.",
+  },
+  {
+    question: "Intervenez-vous sur des chantiers techniques ou après sinistre ?",
+    answer:
+      "Oui, nous pouvons accompagner des remises en état techniques, des reprises de supports, des réseaux et des rénovations après sinistre selon la nature du projet.",
+  },
+  {
+    question: "Faites-vous aussi de l'agencement et du sur-mesure ?",
+    answer:
+      "Oui, nous pouvons intégrer l'agencement, les verrières, les menuiseries et les solutions sur mesure quand elles font partie du chantier.",
   },
 ];
 
@@ -260,12 +255,11 @@ export default function HomePage() {
             <span className="inline-flex rounded-full border border-[#c9d6ca] bg-[#eaf2ea] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#2f7d4f]">
               Entreprise de rénovation en Île-de-France
             </span>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-              Entreprise de rénovation en Île-de-France pour vos projets d’appartement, maison, cuisine et salle de bain
+            <h1 className="mt-4 max-w-xl text-4xl font-semibold leading-[1.02] tracking-tight text-slate-900 sm:max-w-2xl sm:text-5xl">
+              Des travaux bien faits, en toute sérénité
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">
-              Serenys Rénovation accompagne les travaux intérieurs avec une approche claire :
-              devis gratuit, budget cadré, coordination du chantier et finitions soignées.
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-700 sm:text-lg">
+              Serenys Rénovation accompagne vos projets de rénovation intérieure en Île-de-France avec un devis clair, un budget cadré et un chantier bien piloté.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -275,19 +269,19 @@ export default function HomePage() {
                 Demander un devis gratuit
               </Link>
               <Link
-                href="/services/renovation-appartement"
+                href="/realisations"
                 className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-slate-500"
               >
-                Voir nos services
+                Voir nos réalisations
               </Link>
             </div>
             <div className="mt-5 flex items-center gap-2 text-sm text-slate-700">
-              <span className="font-semibold">20 ans d’expérience BTP</span>
+              <span className="font-semibold">20 ans d&apos;expérience BTP</span>
               <span aria-hidden="true">•</span>
               <span>Plus de 2000 chantiers réalisés</span>
             </div>
             <p className="mt-2 text-sm text-slate-600">
-              Réponse rapide • Devis gratuit • Intervention en Île-de-France
+              Réponse sous 2h • Devis gratuit en 48h • Travaux garantis 10 ans
             </p>
           </div>
 
@@ -303,170 +297,6 @@ export default function HomePage() {
             <div className="absolute bottom-8 left-7 rounded-2xl border border-white/70 bg-white/95 px-4 py-2 shadow-lg backdrop-blur">
               <p className="text-sm font-semibold text-slate-900">Intervention dans les Hauts-de-Seine et les Yvelines</p>
             </div>
-          </div>
-        </section>
-
-        <section className="border-y border-[#d7ddd5] bg-white/70">
-          <div className="mx-auto grid max-w-7xl gap-3 px-4 py-5 sm:grid-cols-3 sm:px-6">
-            {seoHighlights.map((item) => (
-              <p
-                key={item}
-                className="rounded-xl border border-[#dbe2d9] bg-[#f8fbf7] px-4 py-3 text-sm font-semibold text-slate-800"
-              >
-                {item}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-3xl border border-[#d5ddd3] bg-white p-6 shadow-sm sm:p-8">
-              <SectionTitle
-                title="Une entreprise de rénovation à l'écoute de votre projet"
-                subtitle="Nous accompagnons les projets de rénovation intérieure en Île-de-France avec une approche claire, un devis gratuit et un suivi rigoureux du chantier."
-              />
-              <div className="mt-5 space-y-4 text-sm leading-relaxed text-slate-700 sm:text-base">
-                <p>
-                  Nous intervenons sur des projets de rénovation intérieure en appartement et en maison,
-                  avec une attention particulière au cadrage budgétaire, à la coordination des artisans et
-                  à la qualité des finitions.
-                </p>
-                <p>
-                  Chaque intervention est pensée pour améliorer le confort, la fonctionnalité et la cohérence
-                  de votre espace, qu’il s’agisse d’une rénovation complète ou d’un réaménagement ciblé.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-[#d5ddd3] bg-white p-6 shadow-sm sm:p-8">
-              <h2 className="text-xl font-semibold text-slate-900">Accès rapides</h2>
-              <ul className="mt-4 space-y-3 text-sm font-medium text-slate-700">
-                <li>
-                  <Link href="/services/renovation-appartement" className="hover:text-[#2f7d4f]">
-                    Rénovation d’appartement en Île-de-France
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/renovation-salle-de-bain" className="hover:text-[#2f7d4f]">
-                    Rénovation de salle de bain
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/renovation/saint-cloud" className="hover:text-[#2f7d4f]">
-                    Entreprise de rénovation à Saint-Cloud
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/renovation/boulogne-billancourt" className="hover:text-[#2f7d4f]">
-                    Entreprise de rénovation à Boulogne-Billancourt
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/guides" className="hover:text-[#2f7d4f]">
-                    Guides rénovation
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
-          <div className="rounded-3xl border border-[#d5ddd3] bg-white p-6 shadow-sm sm:p-8">
-            <SectionTitle
-              title="Des repères concrets pour vous projeter"
-              subtitle="Quelques éléments clés pour mieux comprendre notre expérience, notre ancrage local et le type de chantiers que nous accompagnons."
-            />
-
-            <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {proofStats.map((stat) => (
-                <article key={stat.label} className="rounded-2xl border border-slate-200 bg-[#fcfdfb] p-5">
-                  <p className="text-sm font-medium text-slate-500">{stat.label}</p>
-                  <p className="mt-2 text-2xl font-semibold text-slate-900">{stat.value}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{stat.detail}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-              <article className="rounded-2xl border border-slate-200 bg-[#f7faf6] p-6">
-                <h3 className="text-lg font-semibold text-slate-900">Ancrage local Serenys</h3>
-                <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
-                  {localProofs.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-
-              <article className="rounded-2xl border border-slate-200 bg-white p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#2f7d4f]">
-                  Témoignage client
-                </p>
-                <p className="mt-4 text-lg leading-relaxed text-slate-800">
-                  “{featuredReview.quote}”
-                </p>
-                <p className="mt-4 text-sm font-semibold text-slate-900">{featuredReview.author}</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{featuredReview.detail}</p>
-              </article>
-            </div>
-
-            <article className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 className="text-lg font-semibold text-slate-900">
-                Exemples de chantiers récents
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Découvrez quelques exemples de travaux récemment menés pour illustrer notre manière
-                de concevoir, préparer et transformer les espaces.
-              </p>
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                {instagramProofs.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-[#dbe2d9] bg-[#f8fbf7] p-4 text-sm leading-relaxed text-slate-700"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="services" className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
-          <SectionTitle
-            title="Nos services de rénovation en Île-de-France"
-            subtitle="Appartement, maison, cuisine ou salle de bain : nous intervenons sur les travaux les plus courants de rénovation intérieure."
-          />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <article key={service.title} className="rounded-2xl border border-[#d8dfd8] bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
-                <Link href={service.href} className="mt-4 inline-flex text-sm font-semibold text-[#2f7d4f] hover:underline">
-                  En savoir plus
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <WorkCalculator />
-        </section>
-
-        <section id="methode" className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-          <SectionTitle
-            title="Notre méthode pour piloter un chantier de rénovation"
-            subtitle="Un déroulé simple pour avancer sereinement, de la prise de contact jusqu'à la livraison."
-          />
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {methodSteps.map((step) => (
-              <article key={step.title} className="rounded-2xl border border-[#d9dfd9] bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.description}</p>
-              </article>
-            ))}
           </div>
         </section>
 
@@ -490,39 +320,99 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="villes" className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
-          <div className="rounded-3xl border border-[#d5ddd3] bg-white p-5 sm:p-8">
-            <SectionTitle
-              title="Nos zones d'intervention en Île-de-France"
-              subtitle="Un maillage local cohérent entre la home et les pages ville pour mieux cibler les recherches géographiques."
-            />
-            <div className="mt-5 flex flex-wrap gap-2">
-              {cityLinks.map((city) => (
-                <Link
-                  key={city.label}
-                  href={city.href}
-                  className="rounded-full border border-[#cad6c9] bg-[#f7faf6] px-4 py-2 text-sm font-medium text-slate-800 hover:border-[#2f7d4f] hover:text-[#2f7d4f]"
+        <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+          <div className="rounded-3xl border border-[#d5ddd3] bg-white p-6 shadow-sm sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#2f7d4f]">
+              Avis clients
+            </p>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {reviews.map((review) => (
+                <article
+                  key={review.author + review.location}
+                  className="rounded-2xl border border-slate-200 bg-[#fcfdfb] p-4"
                 >
-                  {city.label}
-                </Link>
+                  <p className="text-sm leading-relaxed text-slate-700">“{review.quote}”</p>
+                  <p className="mt-4 text-sm font-semibold text-slate-900">{review.author}</p>
+                  <p className="mt-1 text-sm text-[#2f7d4f]">{review.location}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{review.detail}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="guides" className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <section id="services" className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
           <SectionTitle
-            title="Nos guides rénovation"
-            subtitle="Des contenus informationnels pour travailler la longue traîne autour du budget, des étapes de chantier et des choix techniques."
+            title="Nos services de rénovation en Île-de-France"
+            subtitle="Les principaux types de rénovation et les métiers que nous mobilisons pour accompagner votre chantier en Île-de-France."
           />
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {guides.map((guide) => (
-              <article key={guide.title} className="rounded-2xl border border-[#d7ded7] bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900">{guide.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{guide.excerpt}</p>
-                <Link href={guide.href} className="mt-4 inline-flex text-sm font-semibold text-[#2f7d4f] hover:underline">
-                  Lire le guide
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {services.map((service) => (
+              <article key={service.title} className="rounded-2xl border border-[#d8dfd8] bg-white p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
+                <Link href={service.href} className="mt-4 inline-flex text-sm font-semibold text-[#2f7d4f] hover:underline">
+                  En savoir plus
                 </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+          <div className="rounded-3xl border border-[#d5ddd3] bg-white p-6 shadow-sm sm:p-8">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div>
+                <SectionTitle
+                  title="Besoin d'un premier chiffrage pour vos travaux ?"
+                  subtitle="Accédez à notre page dédiée pour estimer une première enveloppe selon votre type de projet, votre surface et votre ville."
+                />
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+                  Cette estimation vous permet d&apos;avoir un premier repère avant de demander un devis
+                  plus précis à notre équipe.
+                </p>
+              </div>
+
+              <div className="rounded-[1.75rem] border border-[#dbe2d9] bg-[#f8fbf7] p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#2f7d4f]">
+                  Chiffrage travaux
+                </p>
+                <p className="mt-3 text-2xl font-semibold text-slate-900">
+                  Estimez rapidement votre budget rénovation
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Appartement, maison, cuisine ou salle de bain : obtenez une estimation indicative
+                  en quelques clics.
+                </p>
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/chiffrage"
+                    className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#2f7d4f] px-6 py-3 text-base font-semibold text-white transition hover:bg-[#266741]"
+                  >
+                    Accéder au chiffrage
+                  </Link>
+                  <Link
+                    href="#contact"
+                    className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-slate-500"
+                  >
+                    Demander un devis
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="methode" className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+          <SectionTitle
+            title="Notre méthode en 5 étapes pour piloter votre chantier"
+            subtitle="Un déroulé clair pour cadrer, chiffrer, réaliser et livrer votre projet de rénovation en Île-de-France."
+          />
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {methodSteps.map((step) => (
+              <article key={step.title} className="rounded-2xl border border-[#d9dfd9] bg-white p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.description}</p>
               </article>
             ))}
           </div>
@@ -624,9 +514,9 @@ export default function HomePage() {
                   </a>
                 </li>
                 <li>
-                  <a href="#villes" className="hover:underline">
+                  <Link href="/renovation" className="hover:underline">
                     Zones d’intervention
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#realisations" className="hover:underline">
@@ -634,9 +524,9 @@ export default function HomePage() {
                   </a>
                 </li>
                 <li>
-                  <a href="#guides" className="hover:underline">
+                  <Link href="/guides" className="hover:underline">
                     Guides
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#contact" className="hover:underline">
@@ -672,6 +562,21 @@ export default function HomePage() {
                   </Link>
                 </li>
               </ul>
+
+              <div className="mt-5">
+                <h4 className="text-sm font-semibold text-slate-900">Zones d&apos;intervention</h4>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {cityLinks.map((city) => (
+                    <Link
+                      key={city.label}
+                      href={city.href}
+                      className="rounded-full border border-[#cad6c9] bg-[#f7faf6] px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-[#2f7d4f] hover:text-[#2f7d4f]"
+                    >
+                      {city.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div>
